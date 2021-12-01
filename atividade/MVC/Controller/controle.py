@@ -1,5 +1,5 @@
 from MVC.Model.voo import Voo
-from MVC.Controller.cadastro import Cadastro
+from MVC.Model.cadastro import Cadastro
 import csv
 
 
