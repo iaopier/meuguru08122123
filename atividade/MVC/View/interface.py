@@ -15,23 +15,21 @@ def lista_voos_destino_assentos_data(self):
 
 
 def lista_voos_paradas_datas(self):
-    print("Lista de Voos por parada")
-    print("Informe a data (dd-MM-yyyy)")
-    data = input()
-    print("Informe a parada")
-    parada = input()
-    voos_data_parada = self.controle.lista_voos_paradas_datas(data, parada)
+    print("Lista de Voos por parada ou data")
+    print("Informe a data e hora (dd-MM-yyyy ou uma Parada")
+    busca = input()
+    voos_data_parada = self.controle.lista_voos_paradas_datas(busca)
     for voo in voos_data_parada:
         print("Informacoes do voo " + str(voo.data)
-              + " Parada " + str(parada)
+              + " Parada " + str(voo.paradas)
               + " Assentos Disponíveis " + str(voo.assentos))
 
 
 def cadastro_voos(self):
     print("Cadastro de Voo")
-    print("Informe a data (dd-MM-yyyy)")
+    print("Informe a data (dd-MM-yyyy HH:MM)")
     data = input()
-    print("Informe periodicidade")
+    print("Informe periodicidade (1 - diario/ 2 - semanal")
     periodicidade = input()
     print("Informe a lista de cidades (origem,[paradas],destino")
     lista_cidades = input()
@@ -42,13 +40,19 @@ def cadastro_voos(self):
 
 def venda_bilhete(self):
     print("Venda de bilhete")
+    print("Documento do Cliente")
+    documento = input()
+    print("Nome do Cliente")
+    nome = input()
+    print("Sobrenome do Cliente")
+    sobrenome = input()
     print("Informe a data (dd-MM-yyyy")
     data = input()
     print("Informe Origem do Voo")
     origem = input()
     print("Informe Destino do Voo")
     destino = input()
-    if self.controle.venda_bilhete(data, origem, destino):
+    if self.controle.venda_bilhete(data, origem, destino, documento, nome, sobrenome):
         print("Venda Realizada")
     else:
         print("Venda nao realizada")

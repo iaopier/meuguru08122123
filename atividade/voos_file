@@ -1,0 +1,16 @@
+origem,destino,data,periodicidade,assentos,paradas,id
+Cidade1,Cidade4,2021-02-21 14:00:00,2,100,"['Cidade2', 'Cidade3']",0
+Cidade1,Cidade4,2021-02-28 14:00:00,2,100,"['Cidade2', 'Cidade3']",1
+Cidade1,Cidade4,2021-03-21 13:00:00,1,100,[],2
+Cidade1,Cidade4,2021-03-22 13:00:00,1,100,[],3
+Cidade1,Cidade4,2021-03-23 13:00:00,1,100,[],4
+Cidade1,Cidade4,2021-03-24 13:00:00,1,100,[],5
+Cidade1,Cidade4,2021-03-25 13:00:00,1,100,[],6
+Cidade1,Cidade4,2021-03-26 13:00:00,1,100,[],7
+Cidade1,Cidade4,2021-03-27 13:00:00,1,100,[],8
+Cidade1,Cidade4,2021-03-28 13:00:00,1,100,[],9
+Cidade1,Cidade4,2021-03-29 13:00:00,1,100,[],10
+Cidade1,Cidade4,2021-03-30 13:00:00,1,100,[],11
+Cidade1,Cidade4,2021-03-31 13:00:00,1,100,[],12
+Cidade1,Cidade5,2021-04-21 00:00:00,2,100,[],13
+Cidade1,Cidade5,2021-04-28 00:00:00,2,100,[],14
