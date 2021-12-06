@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta, date, time
 from MVC.Model.voo import Voo
 from MVC.Model.cadastro import Cadastro
 from MVC.Model.cliente import Cliente
@@ -38,7 +38,7 @@ class Controle:
         return voos_data_paradas
 
     def cadastro_voos(self, data, periodicidade, assentos, lista_cidades):
-        data = self.__date_treatment(data)
+        data,time = self.__date_treatment(data)
         cidades = lista_cidades.split(',')
         origem_destino = cidades[::len(cidades) - 1]
         cidades.remove(origem_destino[0])
@@ -46,14 +46,28 @@ class Controle:
         size_list = len(self.cadastro.get_voos())
         data_final = self.__last_day_of_month(data)
         if periodicidade == '1':
-            while data < datetime(data_final.year, data_final.month, data_final.day, 0, 0, 0):
-                voo = Voo(origem_destino[0], origem_destino[1], data, periodicidade, assentos, cidades, size_list)
+            while datetime(int(data.year), int(data.month), int(data.day), int(time.hour), int(time.minute)) <\
+                    datetime(data_final.year, data_final.month, data_final.day, 0, 0):
+                data_time_stamp = datetime(int(data.year),
+                                           int(data.month),
+                                           int(data.day),
+                                           int(time.hour),
+                                           int(time.minute))
+                voo = Voo(origem_destino[0], origem_destino[1],
+                          data_time_stamp, periodicidade,
+                          assentos, cidades, size_list)
                 self.cadastro.set_voos(voo)
                 size_list = len(self.cadastro.get_voos())
                 data = data + timedelta(days=1)
         elif periodicidade == '2':
-            while data < data_final:
-                voo = Voo(origem_destino[0], origem_destino[1], data, periodicidade, assentos, cidades, size_list)
+            while datetime(int(data.year), int(data.month), int(data.day), int(time.hour), int(time.minute)) <\
+                    datetime(data_final.year, data_final.month, data_final.day, 0, 0):
+                data_time_stamp = datetime(int(data.year),
+                                           int(data.month),
+                                           int(data.day),
+                                           int(time.hour),
+                                           int(time.minute))
+                voo = Voo(origem_destino[0], origem_destino[1], data_time_stamp, periodicidade, assentos, cidades, size_list)
                 self.cadastro.set_voos(voo)
                 size_list = len(self.cadastro.get_voos())
                 data = data + timedelta(days=7)
@@ -123,15 +137,14 @@ class Controle:
 
     @staticmethod
     def __date_treatment(data):
-        try:
-            data = data.split("-")
-            data = data[1] + "-" + data[0] + "-" + data[2]
-        except:
-            return False
-        try:
-            return datetime.strptime(data, "%m-%d-%Y %H:%M")
-        except ValueError:
-            return datetime.strptime(data + " 00:00", "%m-%d-%Y %H:%M")
+        data_dmy = data.split("-")
+        data_dmy_hms = str(data_dmy[2]).split(" ")
+        if len(data_dmy_hms) > 1 and data_dmy_hms[1] != "":
+            time_hm = data_dmy_hms[1].split(":")
+            time_hm = time(int(time_hm[0]), int(time_hm[1]))
+        else:
+            time_hm = time(0, 0)
+        return date(int(data_dmy_hms[0]), int(data_dmy[1]), int(data_dmy[0])), time_hm
 
     @staticmethod
     def __last_day_of_month(data):
