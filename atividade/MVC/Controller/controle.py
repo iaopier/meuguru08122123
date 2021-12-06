@@ -64,7 +64,7 @@ class Controle:
             # itera sobre a lista de voos
             for voo in voos:
                 # busca se a parada existe em algum dos voos e se existir, insere na lista
-                if busca.replace(' ', '').upper() in voo.paradas:
+                if busca.upper() in voo.paradas:
                     voos_data_paradas.append(voo)
         # retorna a lista de voos
         return voos_data_paradas
