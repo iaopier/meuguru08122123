@@ -1,3 +1,6 @@
+# classe de cadastro, ela contem a lista de voos e clientes
+# foram utilizados getters e setters explicitos pois, existem diferenças dos comuns, por
+# setarem listas
 class Cadastro:
     def __init__(self):
         self.voos = []

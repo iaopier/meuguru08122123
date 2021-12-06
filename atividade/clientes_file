@@ -1,0 +1,13 @@
+documento,nome,sobrenome,id_do_voo
+1,Cliente1,Sobrenome1,0
+2,Cliente2,Sobrenome2,32
+3,Cliente3,Sobrenome3,33
+1,Cliente1,Sobrenome1,37
+6,Cliente6,Sobrenome6,0
+4,Cliente4,Sobrenome4,33
+7,Cliente7,Sobrenome7,33
+1,Cliente1,Sobrenome1,22
+7,Cliente7,Sobrenome7,29
+8,Cliente8,Sobrenome8,29
+9,Cliente9,Sobrenome9,26
+1,Cliente1,Sobrenome1,32

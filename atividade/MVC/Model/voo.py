@@ -1,8 +1,10 @@
-import uuid
-
+# classe de voo, armazena informacoes dos voos criados pelo usuario
 class Voo:
     assentos = 0
-    def __init__(self, origem, destino, data, periodicidade, assentos, paradas,id):
+    paradas = []
+
+    # construtor
+    def __init__(self, origem, destino, data, periodicidade, assentos, paradas, id):
         self.origem = origem
         self.destino = destino
         self.data = data
